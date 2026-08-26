@@ -19,6 +19,7 @@ else
 
 # Gate level simulation:
 SIM_BUILD				= sim_build/gl
+export GATES
 COMPILE_ARGS    += -DGL_TEST
 COMPILE_ARGS    += -DFUNCTIONAL
 COMPILE_ARGS    += -DUSE_POWER_PINS
