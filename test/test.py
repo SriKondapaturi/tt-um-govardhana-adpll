@@ -44,13 +44,12 @@ async def measure_dco_mhz(dut, n_edges=64):
         prev = cur
 
 
-async def count_out_toggles(dut, window_ns):
-    """Count uo_out[0] transitions within a time window (GL smoke check)."""
+async def count_out_toggles(dut, window_ns, sample_ns=25):
+    """Count uo_out[0] transitions by periodic sampling (hang-proof)."""
     toggles = 0
     prev = int(dut.uo_out.value) & 1
-    t_end = get_sim_time(unit="ns") + window_ns
-    while get_sim_time(unit="ns") < t_end:
-        await ValueChange(dut.uo_out)
+    for _ in range(int(window_ns // sample_ns)):
+        await Timer(sample_ns, unit="ns")
         cur = int(dut.uo_out.value) & 1
         if cur != prev:
             toggles += 1
@@ -68,7 +67,7 @@ async def wait_for_lock(dut, timeout_cycles=30000):
     return False
 
 
-@cocotb.test()
+@cocotb.test(timeout_time=5, timeout_unit="ms")
 async def test_adpll(dut):
     # 10 MHz reference clock
     cocotb.start_soon(Clock(dut.clk, 100, unit="ns").start())
@@ -83,7 +82,9 @@ async def test_adpll(dut):
 
     if _is_gl(dut):
         # ---- Gate-level smoke test: ring alive, divider toggling -------
+        dut._log.info("GL detected: running smoke test")
         await ClockCycles(dut.clk, 20)
+        dut._log.info("GL smoke: reset released, sampling output")
         toggles = await count_out_toggles(dut, window_ns=5000)
         dut._log.info(f"GL smoke: {toggles} output toggles in 5 us window")
         assert toggles >= 8, "Synthesized DCO ring does not oscillate"
