@@ -14,7 +14,15 @@ from cocotb.clock import Clock
 from cocotb.triggers import ClockCycles, ValueChange, Timer
 from cocotb.utils import get_sim_time
 
-GL_TEST = os.environ.get("GATES", "no") == "yes"
+def _is_gl(dut):
+    """GL if env says so OR the behavioral DCO signal is absent (netlist)."""
+    if os.environ.get("GATES", "no") == "yes":
+        return True
+    try:
+        _ = dut.user_project.u_dco.period_ns
+        return False
+    except Exception:
+        return True
 
 
 async def measure_dco_mhz(dut, n_edges=64):
@@ -73,7 +81,7 @@ async def test_adpll(dut):
     await ClockCycles(dut.clk, 10)
     dut.rst_n.value = 1
 
-    if GL_TEST:
+    if _is_gl(dut):
         # ---- Gate-level smoke test: ring alive, divider toggling -------
         await ClockCycles(dut.clk, 20)
         toggles = await count_out_toggles(dut, window_ns=5000)
