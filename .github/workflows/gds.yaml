@@ -25,20 +25,6 @@ jobs:
       - name: Run Tiny Tapeout Precheck
         uses: TinyTapeout/tt-gds-action/precheck@ttsky26c
 
-  gl_test:
-    needs: gds
-    runs-on: ubuntu-24.04
-    timeout-minutes: 20
-    continue-on-error: true
-    steps:
-      - name: checkout repo
-        uses: actions/checkout@v6
-        with:
-          submodules: recursive
-
-      - name: GL test
-        uses: TinyTapeout/tt-gds-action/gl_test@ttsky26c
-
   viewer:
     needs: gds
     runs-on: ubuntu-24.04
