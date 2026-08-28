@@ -9,7 +9,10 @@
  *     window and compared against target N*16.
  *   - Digital PI loop filter with selectable gain presets.
  *   - Ring-oscillator DCO (see dco.v) with 10-bit tuning word.
- *   - Lock detector: |error| <= 8 counts for 15 consecutive windows.
+ *   - Lock detector: error is averaged over groups of 4 windows and lock
+ *     asserts after 8 consecutive groups whose mean is within 2 counts,
+ *     i.e. 32 windows of qualification. The averaging is there because a
+ *     tap-quantized DCO dithers between adjacent taps once settled.
  *
  * Pinout:
  *   clk          : reference clock from TT board (e.g. 10 MHz)
