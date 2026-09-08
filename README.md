@@ -1,4 +1,4 @@
-![](../../workflows/gds/badge.svg) ![](../../workflows/docs/badge.svg) ![](../../workflows/test/badge.svg) ![](../../workflows/fpga/badge.svg)
+[![](../../workflows/gds/badge.svg) ![](../../workflows/docs/badge.svg) ![](../../workflows/test/badge.svg) ![](../../workflows/fpga/badge.svg)
 
 # All-Digital PLL Clock Generator
 
@@ -80,3 +80,4 @@ The ring frequency will shift with process, voltage and temperature, so the usab
 ## License
 
 Apache-2.0
+](https://github.com/SriKondapaturi/tt-um-govardhana-adpll)
