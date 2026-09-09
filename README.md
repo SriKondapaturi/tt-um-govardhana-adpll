@@ -26,21 +26,7 @@ A two-tile all-digital PLL fabricated on the Tiny Tapeout SKY 26c shuttle (SkyWa
 
 ## Architecture
 
-```
-                    +----------+     +-----------+     +----------+     +-----+
-    REF (10 MHz) -->|   TDC    |---->| PI Loop   |---->| Tuning   |---->| DCO |----> OUT
-                    | (counter |     | Filter    |     | Word     |     |Ring |
-                    |  + sync) |     | (I + P)   |     | Decoder  |     |     |
-                    +----------+     +-----------+     +----------+     +--+--+
-                          ^                                                |
-                          |                                                |
-                          +--- Gray-counter feedback (2-stage sync) -------+
-
-                                +-----------------+
-    N[5:0], Gain[1:0] --------->| Live Control    |----> Lock Flag
-                                | (retune w/o rst)|----> DCO/2, Tune Debug
-                                +-----------------+
-```
+![All-Digital PLL architecture](docs/architecture.jpg)
 
 ## How it works
 
