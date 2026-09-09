@@ -95,7 +95,7 @@ Add these when you have them. Suggested workflow:
 ![Cocotb waveform showing lock at 39.81 MHz](docs/analog_waveform.jpg)
 
 ### Floorplan
-![Floorplan showing DCO ring, TDC, PI filter, control](docs/floorplan.png)
+![Floorplan showing DCO ring, TDC, PI filter, control](docs/floorplan.jpg)
 -->
 
 ## Notes for silicon bring-up
