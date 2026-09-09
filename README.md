@@ -80,23 +80,12 @@ There is deliberately no gate-level simulation. The free-running ring forms a ze
 
 ## Screenshots
 
-<!--
-Add these when you have them. Suggested workflow:
-1. Run OpenLane through the tt-um flow. In the run's `results/final/` folder you'll find gds/*.gds.
-2. Open gds/tt_um_govardhana_adpll.gds in KLayout, screenshot the layout, save as docs/layout.png.
-3. Run the cocotb test to dump waves, open in GTKWave, screenshot lock event, save as docs/waveform-lock.png.
-4. From OpenLane run's reports, screenshot the floorplan view (or use Magic), save as docs/floorplan.png.
-5. Uncomment the block below.
-
 ### Final GDSII Layout
 ![Final layout on SKY130](docs/layout.jpg)
 
 ### Lock waveform (cocotb, N=4)
 ![Cocotb waveform showing lock at 39.81 MHz](docs/analog_waveform.jpg)
 
-### Floorplan
-![Floorplan showing DCO ring, TDC, PI filter, control](docs/floorplan.jpg)
--->
 
 ## Notes for silicon bring-up
 
