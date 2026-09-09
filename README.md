@@ -89,10 +89,10 @@ Add these when you have them. Suggested workflow:
 5. Uncomment the block below.
 
 ### Final GDSII Layout
-![Final layout on SKY130](docs/layout.png)
+![Final layout on SKY130](docs/layout.jpg)
 
 ### Lock waveform (cocotb, N=4)
-![Cocotb waveform showing lock at 39.81 MHz](docs/waveform-lock.png)
+![Cocotb waveform showing lock at 39.81 MHz](docs/analog_waveform.jpg)
 
 ### Floorplan
 ![Floorplan showing DCO ring, TDC, PI filter, control](docs/floorplan.png)
