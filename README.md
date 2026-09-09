@@ -3,7 +3,6 @@
 [![gds](https://github.com/SriKondapaturi/tt-um-govardhana-adpll/workflows/gds/badge.svg)](https://github.com/SriKondapaturi/tt-um-govardhana-adpll/actions)
 [![docs](https://github.com/SriKondapaturi/tt-um-govardhana-adpll/workflows/docs/badge.svg)](https://github.com/SriKondapaturi/tt-um-govardhana-adpll/actions)
 [![test](https://github.com/SriKondapaturi/tt-um-govardhana-adpll/workflows/test/badge.svg)](https://github.com/SriKondapaturi/tt-um-govardhana-adpll/actions)
-[![fpga](https://github.com/SriKondapaturi/tt-um-govardhana-adpll/workflows/fpga/badge.svg)](https://github.com/SriKondapaturi/tt-um-govardhana-adpll/actions)
 
 A two-tile all-digital PLL fabricated on the Tiny Tapeout SKY 26c shuttle (SkyWater 130 nm). It multiplies the 10 MHz board clock up to a programmable output frequency, 40 MHz by default, using a ring-oscillator DCO built entirely from standard cells. There is no analog circuitry anywhere in the loop: phase detection is done by counting, the loop filter is a small PI accumulator, and the oscillator is tuned by switching taps along an inverter chain.
 
